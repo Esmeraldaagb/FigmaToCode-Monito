@@ -28,16 +28,15 @@ import sel7 from '@/assets/sellers/sel7.png'
 
 
 
-export const chiotimages = {
-  chiot1,
- chiot2,
-  chiot3,
-  chiot4,
-  chiot5,
-  chiot6,
-  chiot7,
-  chiot8,
-};
+export const chiotImages1: string[] = [chiot1.src, chiot2.src, chiot3.src];
+export const chiotImages2: string[] = [chiot2.src, chiot5.src, chiot6.src];
+export const chiotImages3: string[] = [chiot3.src, chiot8.src];
+export const chiotImages4: string[] = [chiot4.src, chiot8.src];
+export const chiotImages5: string[] = [chiot5.src, chiot8.src];
+export const chiotImages6: string[] = [chiot6.src, chiot8.src];
+export const chiotImages7: string[] = [chiot7.src, chiot8.src];
+export const chiotImages8: string[] = [chiot8.src, chiot8.src];
+
 
 export const productimages = {
   prod1,

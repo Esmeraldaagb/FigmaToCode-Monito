@@ -1,16 +1,28 @@
 import { StaticImageData } from "next/image";
 
 export type AnimalCardProps = {
-  id: number;
-  type: string;
+  id?: number;
+  type?: string;
   matriculation: string;
   genre?: "male" | "female";
+  name?: string;
+  price?: number;
+  currency?: string;
+  images?: string[];
+  sku?: string;
+  gender?: string;
   age?: number;
-  prix?: string;
-  image?: string | StaticImageData;
-  className?: string;
-  category?: string;
-  colors?: string;
+  size?: string;
+  color?: string;
+  vaccinated?: boolean;
+  dewormed?: boolean;
+  cut?: string;
+  microchip?: boolean;
+  location?: string;
+  publishedDate?: string;
+  additionalInfo?: string;
+  breed?: string;
+  description?: string;
 };
 
 
@@ -29,12 +41,20 @@ export type SellersProps={
   
 }
 
-export interface FilterState {
+export type FilterState = {
   category: string;
+  genre: string;
   priceRange: [number, number];
-  brand?: string; // optionnel ou supprimé si inutile
+  gender: string;
   color: string;
-  searchQuery: string;
-  genre: "" | "male" | "female"; // autorise vide
-  sortBy: "popular" | "price-low" | "price-high" | "name" | "rating";
+  breed: string;
+  sortBy: "popular" | "price-low" | "price-high" | "name";
+  searchQuery?: string;
+  brand?: string;
+};
+
+export interface CustomerReview {
+  id: string;
+  image: string;
+  customerName?: string;
 }

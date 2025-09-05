@@ -1,5 +1,5 @@
-import { chiotimages,productimages,sellersimages } from "./image";
-import { AnimalCardProps,ProductCardProps,SellersProps } from "./type";
+import { chiotImages1,chiotImages2,chiotImages3,chiotImages4,chiotImages5,chiotImages6,chiotImages7,chiotImages8,productimages,sellersimages } from "./image";
+import { AnimalCardProps,CustomerReview } from "./type";
 
 export const animalData: AnimalCardProps[] = [
   {
@@ -8,8 +8,21 @@ export const animalData: AnimalCardProps[] = [
     type: "Pomeranian White",
     genre: "male",
     age: 2,
-    image: chiotimages.chiot1,
-    prix: "6.900.000",
+    images: chiotImages1,
+    price: 6900000,
+    sku: '#000078',
+    gender: 'Female',
+    size: 'Small',
+    color: 'Apricot & Tan',
+    vaccinated: true,
+    dewormed: true,
+    cut: 'Yes (MKA)',
+    microchip: true,
+    location: 'Vietnam',
+    publishedDate: '12-Oct-2022',
+    additionalInfo: 'Pure breed Shib Tzu. Good body structure. With MKA cert and Microchip. Father from champion lineage.',
+    breed: 'Shiba Inu',
+    description: 'Beautiful Shiba Inu with excellent temperament and health guarantees.'
   },
   {
     id: 2,
@@ -17,8 +30,21 @@ export const animalData: AnimalCardProps[] = [
     matriculation: "MO502",
     genre: "female",
     age: 2,
-    image: chiotimages.chiot2,
-    prix: "3.900.000",
+    images:chiotImages2,
+    price: 3900000,
+    sku: '#000078',
+    gender: 'Female',
+    size: 'Small',
+    color: 'Apricot & Tan',
+    vaccinated: true,
+    dewormed: true,
+    cut: 'Yes (MKA)',
+    microchip: true,
+    location: 'Vietnam',
+    publishedDate: '12-Oct-2022',
+    additionalInfo: 'Pure breed Shib Tzu. Good body structure. With MKA cert and Microchip. Father from champion lineage.',
+    breed: 'Shiba Inu',
+    description: 'Beautiful Shiba Inu with excellent temperament and health guarantees.'
   },
   {
     id: 3,
@@ -26,8 +52,21 @@ export const animalData: AnimalCardProps[] = [
     matriculation: "MO102",
     genre: "male",
     age: 2,
-    image: chiotimages.chiot3,
-    prix: "4.000.000",
+    images:chiotImages3,
+    price: 4000000,
+    sku: '#000078',
+    gender: 'Female',
+    size: 'Small',
+    color: 'Apricot & Tan',
+    vaccinated: true,
+    dewormed: true,
+    cut: 'Yes (MKA)',
+    microchip: true,
+    location: 'Vietnam',
+    publishedDate: '12-Oct-2022',
+    additionalInfo: 'Pure breed Shib Tzu. Good body structure. With MKA cert and Microchip. Father from champion lineage.',
+    breed: 'Shiba Inu',
+    description: 'Beautiful Shiba Inu with excellent temperament and health guarantees.'
   },
   {
     id: 4,
@@ -35,8 +74,21 @@ export const animalData: AnimalCardProps[] = [
     matriculation: "MO512",
     genre: "male",
     age: 2,
-    image: chiotimages.chiot4,
-    prix: "8.900.000",
+    images:chiotImages4,
+    price: 8900000,
+    sku: '#000078',
+    gender: 'Female',
+    size: 'Small',
+    color: 'Apricot & Tan',
+    vaccinated: true,
+    dewormed: true,
+    cut: 'Yes (MKA)',
+    microchip: true,
+    location: 'Vietnam',
+    publishedDate: '12-Oct-2022',
+    additionalInfo: 'Pure breed Shib Tzu. Good body structure. With MKA cert and Microchip. Father from champion lineage.',
+    breed: 'Shiba Inu',
+    description: 'Beautiful Shiba Inu with excellent temperament and health guarantees.'
   },
   {
     id: 5,
@@ -44,8 +96,22 @@ export const animalData: AnimalCardProps[] = [
     matriculation: "MO231",
     genre: "male",
     age: 2,
-    image: chiotimages.chiot5,
-    prix: "7.900.000",
+    images:chiotImages5,
+
+    price: 7900000,
+    sku: '#000078',
+    gender: 'Female',
+    size: 'Small',
+    color: 'Apricot & Tan',
+    vaccinated: true,
+    dewormed: true,
+    cut: 'Yes (MKA)',
+    microchip: true,
+    location: 'Vietnam',
+    publishedDate: '12-Oct-2022',
+    additionalInfo: 'Pure breed Shib Tzu. Good body structure. With MKA cert and Microchip. Father from champion lineage.',
+    breed: 'Shiba Inu',
+    description: 'Beautiful Shiba Inu with excellent temperament and health guarantees.'
   },
   {
     id: 6,
@@ -53,8 +119,22 @@ export const animalData: AnimalCardProps[] = [
     matriculation: "MO502",
     genre: "female",
     age: 2,
-    image: chiotimages.chiot6,
-    prix: "9.000.000",
+    images:chiotImages6,
+
+    price: 9000000,
+    sku: '#000078',
+    gender: 'Female',
+    size: 'Small',
+    color: 'Apricot & Tan',
+    vaccinated: true,
+    dewormed: true,
+    cut: 'Yes (MKA)',
+    microchip: true,
+    location: 'Vietnam',
+    publishedDate: '12-Oct-2022',
+    additionalInfo: 'Pure breed Shib Tzu. Good body structure. With MKA cert and Microchip. Father from champion lineage.',
+    breed: 'Shiba Inu',
+    description: 'Beautiful Shiba Inu with excellent temperament and health guarantees.'
   },
   {
     id: 7,
@@ -62,8 +142,21 @@ export const animalData: AnimalCardProps[] = [
     matriculation: "MO231",
     genre: "female",
     age: 2,
-    image: chiotimages.chiot7,
-    prix: "6.500.000",
+    images:chiotImages7,
+    price: 6500000,
+    sku: '#000078',
+    gender: 'Female',
+    size: 'Small',
+    color: 'Apricot & Tan',
+    vaccinated: true,
+    dewormed: true,
+    cut: 'Yes (MKA)',
+    microchip: true,
+    location: 'Vietnam',
+    publishedDate: '12-Oct-2022',
+    additionalInfo: 'Pure breed Shib Tzu. Good body structure. With MKA cert and Microchip. Father from champion lineage.',
+    breed: 'Shiba Inu',
+    description: 'Beautiful Shiba Inu with excellent temperament and health guarantees.'
   },
   {
     id: 8,
@@ -71,8 +164,21 @@ export const animalData: AnimalCardProps[] = [
     matriculation: "MO512",
     genre: "male",
     age: 2,
-    image: chiotimages.chiot8,
-    prix: "5.000.000",
+    images:chiotImages8,
+    price: 5000000,
+    sku: '#000078',
+    gender: 'Female',
+    size: 'Small',
+    color: 'Apricot & Tan',
+    vaccinated: true,
+    dewormed: true,
+    cut: 'Yes (MKA)',
+    microchip: true,
+    location: 'Vietnam',
+    publishedDate: '12-Oct-2022',
+    additionalInfo: 'Pure breed Shib Tzu. Good body structure. With MKA cert and Microchip. Father from champion lineage.',
+    breed: 'Shiba Inu',
+    description: 'Beautiful Shiba Inu with excellent temperament and health guarantees.'
   },
 ];
 
@@ -166,3 +272,31 @@ export const sellersData=[
 
 
 ]
+
+export const customerReviews: CustomerReview[] = [
+  {
+    id: '1',
+    image: chiotImages1[0],
+    customerName: 'Happy Family'
+  },
+  {
+    id: '2',
+    image: chiotImages2[0],
+    customerName: 'Dog Lover'
+  },
+  {
+    id: '3',
+    image: chiotImages3[0],
+    customerName: 'Pet Parent'
+  },
+  {
+    id: '4',
+    image: chiotImages4[0],
+    customerName: 'Animal Enthusiast'
+  },
+  {
+    id: '5',
+    image: chiotImages5[0],
+    customerName: 'Puppy Family'
+  }
+];
