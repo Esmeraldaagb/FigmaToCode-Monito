@@ -37,28 +37,28 @@ function Hero() {
           </div>
           {/* Colonne droite */}
         <div className="flex-1 relative flex items-end justify-end min-h-[400px]">
-  {/* Card bleue */}
-  <div
-    className="absolute left-8 bottom-0 w-full max-w-[400px] h-[370px] bg-[#003459] rounded-bl-[80px] rounded-[45px] z-10"
-    style={{ transform: "skewX(-16deg)" }}
-  ></div>
-  {/* Card jaune */}
-  <div
-    className="absolute right-[40px] bottom-0 w-full max-w-[520px] h-[420px] bg-[#F7DBA7] rounded-br-[80px] rounded-[45px] z-20"
-    style={{ transform: "rotate(-7deg)" }}
-  ></div>
-  {/* Image principale */}
-  <div className="relative -bottom-4 z-30 flex items-end justify-end h-full">
-    <Image
-      src="/hero.png"
-      alt="Happy person holding a dog"
-      width={400}
-      height={400}
-      className="object-contain h-[500px] w-auto "
-      priority
-    />
-  </div>
-</div>
+           
+            <div
+              className="absolute left-8 bottom-0 w-full max-w-[400px] h-[330px] bg-[#003459] rounded-bl-[0px] rounded-[45px] z-10"
+              style={{ transform: "skewX(-16deg)" }}
+            ></div>
+            
+            <div
+              className="absolute right-[100px] -bottom-32 w-full max-w-[520px] h-[470px] bg-[#F7DBA7] rounded-br-[0px] rounded-[45px] z-20"
+              style={{ transform: "rotate(20deg)" }}
+            ></div>
+           
+            <div className="relative -bottom-4 z-40 flex h-full">
+              <Image
+                src="/hero.png"
+                alt="Happy person holding a dog"
+                width={400}
+                height={400}
+                className="object-contain w-full h-[500px] "
+                priority
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
