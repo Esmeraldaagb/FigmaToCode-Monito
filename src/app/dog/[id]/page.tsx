@@ -53,14 +53,21 @@ const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
         </Link>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Column - Images */}
+          
           <div>
-           <ImageGallery images={dog.images ?? []} dogName={dog.name ?? dog.type ?? ""} />
+          <ImageGallery
+              images={
+                (dog.images ?? []).map(img =>
+                  typeof img === "string" ? img : img.src
+                )
+              }
+              dogName={dog.name ?? dog.type ?? ""}
+            />
           </div>
 
-          {/* Right Column - Details */}
+          {/* Colonne Details */}
           <div className="space-y-6">
-            {/* Basic Info */}
+            {/* Info*/}
             <div>
               <div className="flex items-center justify-between mb-2">
                 <h1 className="text-3xl font-bold text-gray-900">{dog.name}</h1>
@@ -73,7 +80,7 @@ const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
               </p>
             </div>
 
-            {/* Action Buttons */}
+            {/* Buttons */}
             <div className="flex space-x-4">
               <button className="flex-1 bg-blue-700 text-white py-3 px-6 rounded-lg hover:bg-blue-800 transition-colors font-medium flex items-center justify-center space-x-2">
                 <Phone className="w-5 h-5" />
@@ -85,7 +92,7 @@ const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
               </button>
             </div>
 
-            {/* Details Grid */}
+            {/* Details  */}
             <div className="grid grid-cols-2 gap-4 py-6 border-t border-gray-200">
               <div className="space-y-4">
                 <div className="flex justify-between">
@@ -144,7 +151,7 @@ const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
               </div>
             </div>
 
-            {/* Guarantees */}
+            {/* Garenties*/}
             <div className="flex items-center space-x-6 py-4 bg-green-50 rounded-lg px-4">
               <div className="flex items-center space-x-2 text-green-700">
                 <Shield className="w-5 h-5" />
@@ -156,7 +163,7 @@ const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
               </div>
             </div>
 
-            {/* Share */}
+            {/* Partage */}
             <div className="border-t border-gray-200 pt-6">
               <div className="flex items-center space-x-4">
                 <span className="text-gray-600 font-medium">Share:</span>
@@ -177,7 +184,7 @@ const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
               </div>
             </div>
 
-            {/* Additional Information */}
+            {/* Plus d'information */}
             <div className="border-t border-gray-200 pt-6">
               <h3 className="font-semibold text-gray-900 mb-2">Additional Information</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
@@ -187,12 +194,12 @@ const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
           </div>
         </div>
 
-        {/* Customer Reviews Section */}
+        {/* Avis client */}
         <div className="mt-16">
           <CustomerReviews reviews={customerReviews} />
         </div>
 
-        {/* What's New Section */}
+        {/*Section */}
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">What&apos;s new?</h3>
           <Link 

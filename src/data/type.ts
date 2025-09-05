@@ -8,7 +8,7 @@ export type AnimalCardProps = {
   name?: string;
   price?: number;
   currency?: string;
-  images?: string[];
+  images: (string | StaticImageData)[];
   sku?: string;
   gender?: string;
   age?: number;

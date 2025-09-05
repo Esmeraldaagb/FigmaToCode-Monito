@@ -20,24 +20,24 @@ const AnimalCard: React.FC<AnimalCardProps> = ({
     >
       {/* Image */}
      <div className="relative w-full h-64 rounded-md overflow-hidden">
-        {images?.map((image, index) => (
+       {images?.map((image, index) => (
           <Image
             key={index}
-             src={images?.[0] || "/placeholder.png"} // première image ou placeholder
+            src={image || "/logo.png"} 
             alt={`Chiot ${index + 1}`}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             width={300}
             height={320}
           />
-        ))}  
+        ))}
 
         <Link
          href={`/dog/${id}`}
           className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
         >
-          <span className="flex items-center gap-2 bg-blue-700 text-white px-6 py-3 rounded-full hover:bg-blue-800 transition-transform transform hover:scale-110">
-            <Eye className="w-5 h-5" />
-            View Details
+          <span className="flex items-center gap-2 bg-[#002A48] text-[#FCEED5] px-4 py-2 rounded-full hover:bg-[#FCEED5] hover:text-[#002A48] text-sm transition-transform transform hover:scale-110">
+            <Eye className="w-4 h-4" />
+            Voir les détails
           </span>
         </Link>
       </div>

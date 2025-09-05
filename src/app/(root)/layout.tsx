@@ -1,6 +1,7 @@
 
 import type { Metadata } from "next";
 import HomeHead from "@/components/shared/homeHead";
+import Footer from "@/components/shared/footer";
 
 export const metadata = {
   title: "Home",
@@ -16,7 +17,7 @@ export default function RootLayout({
        
   <HomeHead/>
         {children}
-   
+   <Footer/>
     </div>
   );
 }

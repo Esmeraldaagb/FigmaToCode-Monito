@@ -69,7 +69,7 @@ const clearFilters = () => {
 
       {/* Filters Panel */}
       <div className={`${isOpen ? 'block' : 'hidden'} lg:block space-y-6`}>
-        <Card className="animate-fade-in-up bg-transparent">
+        <Card className="animate-fade-in-up bg-transparent shadow-none border-0">
           <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle className="text-blue-900 flex items-center">
               Filter
@@ -113,35 +113,35 @@ const clearFilters = () => {
               </div>
             </div>
 
-{/* Price Filter */}
-<div className="space-y-3">
-  <h3 className="font-semibold text-gray-900">Price</h3>
-  <div className="flex items-center space-x-4">
-    {/* Min */}
-    <input
-      type="number"
-      min={0}
-      value={filters.priceRange[0]}
-      onChange={(e) =>
-        updateFilters('priceRange', [Number(e.target.value), filters.priceRange[1]])
-      }
-      placeholder="Min"
-      className="w-20 border rounded px-2 py-1 text-sm"
-    />
+            {/* Price Filter */}
+            <div className="space-y-3">
+              <h3 className="font-semibold text-gray-900">Price</h3>
+              <div className="flex items-center space-x-4">
+                {/* Min */}
+                <input
+                  type="number"
+                  min={0}
+                  value={filters.priceRange[0]}
+                  onChange={(e) =>
+                    updateFilters('priceRange', [Number(e.target.value), filters.priceRange[1]])
+                  }
+                  placeholder="Min"
+                  className="w-20 border rounded px-2 py-1 text-sm"
+                />
 
-    {/* Max */}
-    <input
-      type="number"
-      min={0}
-      value={filters.priceRange[1]}
-      onChange={(e) =>
-        updateFilters('priceRange', [filters.priceRange[0], Number(e.target.value)])
-      }
-      placeholder="Max"
-      className="w-20 border rounded px-2 py-1 text-sm"
-    />
-  </div>
-</div>
+                {/* Max */}
+                <input
+                  type="number"
+                  min={0}
+                  value={filters.priceRange[1]}
+                  onChange={(e) =>
+                    updateFilters('priceRange', [filters.priceRange[0], Number(e.target.value)])
+                  }
+                  placeholder="Max"
+                  className="w-20 border rounded px-2 py-1 text-sm"
+                />
+              </div>
+            </div>
 
        {/* Color Filter */}
           <div className="space-y-3">
