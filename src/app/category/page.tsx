@@ -7,7 +7,9 @@ import AnimalCard from "@/components/animalsCards/animalsCard";
 import CategoryHero from "@/components/categoryHero/categoryHero";
 import { FilterState } from "@/data/type";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ChevronRight } from "lucide-react";  
 export default function Category() {
   const [filters, setFilters] = useState<FilterState>({
     category: "",
@@ -106,6 +108,25 @@ export default function Category() {
             <Filters filters={filters} onFiltersChange={setFilters} />
           </div>
 
+     <div>
+        <div className="flex items-center justify-between mt-2">
+          {/* Titre et sous-titre */}
+          <div className="flex items-center gap-2">
+            <p className="text-[#003459] text-2xl font-bold">Small dog</p>
+            <h1 className="text-lg font-medium">52 poppies</h1>
+          </div>
+
+          {/* Bouton */}
+          <Link href="/category">
+            <Button asChild variant="outline" className="p-3 rounded-full border-[#003459]">
+              <div className="flex items-center gap-1">
+                View more
+                <ChevronRight />
+              </div>
+            </Button>
+          </Link>
+        </div>
+
           {/* Grille */}
           <div className="flex-1">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-5">
@@ -156,6 +177,8 @@ export default function Category() {
               </button>
             </div>
           </div>
+</div>
+    
         </div>
       </div>
     </div>

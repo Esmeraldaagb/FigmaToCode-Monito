@@ -1,38 +1,17 @@
-'use client'
+import React from 'react';
+import { Play, Search, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 
-import { Play,  } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
-
-
-export default function Hero() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20)
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    window.addEventListener('mousemove', handleMouseMove)
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('mousemove', handleMouseMove)
-    }
-  }, [])
-
+function App() {
   return (
-    <div className=" bg-[#Fceed5] overflow-hidden relative rounded-b-2xl">
- 
-      <main className=" mx-auto px-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[calc(100vh-140px)]">
-          {/* Contenu gauche */}
-          <div className="space-y-8 animate-slide-in-left">
-            <div className="space-y-6">
+    <div className=" bg-[#FCEED5]">
+  
+      {/* Hero Section */}
+      <div className="container mx-auto px-8 py-12">
+        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+          {/* Contenu gaauche */}
+          <div className="space-y-8">
+             <div className="space-y-6">
               <h1 className="text-[#002A48] text-4xl xl:text-6xl font-bold">
               <span className="inline-block animate-slide-up-stagger-1 transition-colors duration-500">
                     <span className="relative z-10 inline-flex items-center justify-center w-17 h-17 bg-[#F7DBA7] rotate-12 text-[#002A48] font-bold rounded-sm -mr-4">
@@ -53,52 +32,54 @@ export default function Hero() {
                 different pets that can meet your needs!
               </p>
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-6 animate-slide-up-stagger-3">
-              <Button 
-                variant="outline" 
-                className=" border-[#1B365D] bg-transparent text-[#1B365D] hover:bg-[#1B365D] hover:text-white p-4 rounded-full font-semibold text-md transition-all duration-500 hover:scale-105 group hover:shadow-2xl hover:shadow-[#1B365D]/25 transform relative overflow-hidden"
-              >
-                <span className="relative z-10">View Intro</span>
-                <Play className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-300" />
-                
+            
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <button className="group flex items-center gap-3 px-8 py-3 border-2 border-[#003459] text-[#003459] rounded-full hover:bg-[#003459] hover:text-white transition-all duration-300 font-medium">
+                View Intro
+                <div className="w-6 h-6 border-2 border-current rounded-full flex items-center justify-center">
+                  <Play className="w-3 h-3 fill-current" />
+                </div>
+              </button>
               
-              </Button>
-              
-              <Button 
-                className="bg-[#1B365D] hover:bg-[#2E5A88] text-white p-4 rounded-full font-semibold text-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl transform hover:shadow-[#1B365D]/30 relative overflow-hidden group"
-              >
-                <span className="relative z-10">Explore Now</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#2E5A88] via-[#F4D03F] to-[#2E5A88] opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-flow" />
-              </Button>
+              <button className="group flex items-center gap-3 px-8 py-3 bg-[#003459] text-white rounded-full hover:bg-[#003459] transition-all duration-300 font-medium">
+                Explore Now
+              </button>
             </div>
           </div>
-
-          {/* Contenu droit */}
-          <div className="relative animate-slide-in-right">
-            <div 
-              className="absolute top-16 left-8 w-8 h-8 bg-[#1B365D] transform rotate-45 animate-spin-slow z-20"
-              style={{
-                transform: `rotate(45deg) translate(${mousePosition.x * 0.003}px, ${mousePosition.y * 0.003}px)`,
-              }}
-            />
+          
+          {/* Right Column - Visual */}
+          <div className="relative">
+            {/* Background Card */}
+            <div className="absolute top-8 right-8 w-96 h-[480px] bg-[#FFDBA7] rounded-3xl shadow-lg z-0"></div>
             
-            <div className="relative z-40 ml-16 mt-8 animate-zoom-in-stagger">
-           
-                {/*image  */}
-                <Image
-                  src="/heroimage.png"
-                  alt="Happy woman with Corgi dog"
-                  className="w-[500px] h-[600px] object-cover object-center transition-all duration-700 hover:scale-110"
+            {/* Abstract Background Shapes */}
+            <div className="absolute inset-0">
+              {/* Main blue shape */}
+              <div className="absolute top-32 right-16 w-72 h-80 bg-[#003459] transform rotate-12 rounded-tl-[80px] rounded-br-[80px] opacity-90 z-5"></div>
+              
+              {/* Small decorative elements */}
+              <div className="absolute top-24 left-12 w-4 h-4 bg-blue-900 transform rotate-45 z-5"></div>
+              <div className="absolute top-12 right-24 w-6 h-6 bg-yellow-400 rounded-full z-5"></div>
+              <div className="absolute bottom-24 left-4 w-8 h-8 bg-yellow-300 rounded-full opacity-70 z-5"></div>
+            </div>
+            
+            {/* Main Image */}
+            <div className="relative z-10 ml-8">
+              <div className="relative">
+                <Image 
+                  src="/hero.png"
+                  alt="Happy woman holding a Shiba Inu dog" 
+                  className="w-full h-[600px] object-cover object-center rounded-2xl"
                   width={400}
-                  height={500}
+                  height={450}
                 />
-                
               </div>
             </div>
-        
+          </div>
         </div>
-      </main>
+      </div>
     </div>
-  )
+  );
 }
+
+export default App;
