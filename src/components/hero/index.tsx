@@ -26,7 +26,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#Fceed5] overflow-hidden relative rounded-b-xl">
+    <div className=" bg-[#Fceed5] overflow-hidden relative rounded-b-2xl">
  
       <main className=" mx-auto px-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[calc(100vh-140px)]">
@@ -83,7 +83,6 @@ export default function Hero() {
               }}
             />
             
-      
             <div className="relative z-40 ml-16 mt-8 animate-zoom-in-stagger">
            
                 {/*image  */}

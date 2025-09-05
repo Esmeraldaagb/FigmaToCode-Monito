@@ -10,7 +10,7 @@ import r2 from "@/assets/r2.png"
 
 export default function AdoptionCard() {
   return (
-    <Card className="relative mx-4 lg:mx-20 bg-[#003459] text-white rounded-3xl overflow-hidden shadow-xl">
+    <Card className="relative mx-4 my-20 lg:mx-20 bg-[#003459] text-white rounded-3xl overflow-hidden shadow-xl">
       {/* Image*/}
       <div className="absolute top-0 right-0 w-1/2 h-1/2 z-0">
         <Image

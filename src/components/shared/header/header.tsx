@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-
+import Link from 'next/link'
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -29,8 +29,6 @@ export default function Header() {
     <div className="bg-transparent overflow-hidden relative">
      
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-       
-        
         
         <div 
           className="absolute top-32 right-20 w-[200px] h-[200px] bg-[#F7DC6F] rounded-full opacity-40 animate-float-delayed"
@@ -47,12 +45,13 @@ export default function Header() {
         />
       </div>
 
-     
       <header className={`relative z-20 transition-all duration-700 ease-out ${isScrolled ? 'bg-white/95 backdrop-blur-xl shadow-2xl' : ''}`}>
         <div className="container mx-auto px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3 group cursor-pointer animate-slide-in-left">
-              <Image src="/logo.png" alt="logo" width={120} height={120}/>
+              <Link href="/">
+                 <Image src="/logo.png" alt="logo" width={120} height={120}/>
+              </Link>
             </div>
 
             <nav className="hidden lg:flex items-center space-x-12 animate-slide-down">

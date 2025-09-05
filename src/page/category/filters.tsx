@@ -8,6 +8,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
 import { X, Filter } from 'lucide-react';
 import { FilterState } from '@/data/type';
+import { Input } from '@/components/ui/input';
 
 interface FiltersProps {
   filters: FilterState;
@@ -18,8 +19,7 @@ export default function Filters({ filters, onFiltersChange }: FiltersProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const categories = ['Male', 'Female'];
-  const brands = ['TechBrand', 'AudioTech', 'WearTech', 'StyleCo', 'SportFlex', 'BrewMaster', 'EcoWear', 'ZenFit'];
-  const colors = ['Black', 'White', 'Blue', 'Red', 'Silver', 'Green', 'Gray', 'Navy'];
+  const colors = ['Red', 'Apricot', 'Black', 'Black & white', 'Silver', 'Tan'];
 
 const updateFilters = <K extends keyof FilterState>(key: K, value: FilterState[K]) => {
   onFiltersChange({ ...filters, [key]: value });
@@ -86,102 +86,121 @@ const clearFilters = () => {
               </Button>
             )}
           </CardHeader>
-          <CardContent className="space-y-6">
+       
+     <CardContent className="divide-y divide-gray-200">
 
-            {/* Category Filter */}
-            <div className="space-y-3">
-              <h3 className="font-semibold text-gray-900">Gender</h3>
-              
-              <div className="space-y-2">
-                {categories.map((category) => (
-                  <div key={category} className="flex items-center space-x-2">
-                    <Checkbox
-                      id={`category-${category}`}
-                      checked={filters.category === category}
-                      onCheckedChange={(checked) => 
-                        updateFilters('category', checked ? category : '')
-                      }
-                    />
-                    <label
-                      htmlFor={`category-${category}`}
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
-                    >
-                      {category}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Price Filter */}
-            <div className="space-y-3">
-              <h3 className="font-semibold text-gray-900">Price</h3>
-              <div className="flex items-center space-x-4">
-                {/* Min */}
-                <input
-                  type="number"
-                  min={0}
-                  value={filters.priceRange[0]}
-                  onChange={(e) =>
-                    updateFilters('priceRange', [Number(e.target.value), filters.priceRange[1]])
+        {/*Filtre category */}
+        <div className="space-y-3 py-4">
+          <h3 className="font-semibold text-gray-900">Gender</h3>
+          <div className="space-y-2">
+            {categories.map((category) => (
+              <div key={category} className="flex items-center space-x-2">
+                <Checkbox
+                  id={`category-${category}`}
+                  checked={filters.category === category}
+                  onCheckedChange={(checked) =>
+                    updateFilters('category', checked ? category : '')
                   }
-                  placeholder="Min"
-                  className="w-20 border rounded px-2 py-1 text-sm"
                 />
-
-                {/* Max */}
-                <input
-                  type="number"
-                  min={0}
-                  value={filters.priceRange[1]}
-                  onChange={(e) =>
-                    updateFilters('priceRange', [filters.priceRange[0], Number(e.target.value)])
-                  }
-                  placeholder="Max"
-                  className="w-20 border rounded px-2 py-1 text-sm"
-                />
+                <label
+                  htmlFor={`category-${category}`}
+                  className="text-sm font-medium leading-none cursor-pointer"
+                >
+                  {category}
+                </label>
               </div>
-            </div>
-
-       {/* Color Filter */}
-          <div className="space-y-3">
-            <h3 className="font-semibold text-gray-900">Colors</h3>
-            <div className="space-y-2 max-h-40 overflow-y-hidden pr-2">
-              {colors.map((color) => (
-                <div key={color} className="flex items-center space-x-2">
-                  {/* Checkbox */}
-                  <Checkbox
-                    id={`color-${color}`}
-                    checked={filters.color === color}
-                    onCheckedChange={(checked) =>
-                      updateFilters('color', checked ? color : '')
-                    }
-                  />
-                  {/* Cercle couleur */}
-                  <span
-                    className="w-4 h-4 rounded-full border"
-                    style={{
-                      backgroundColor:
-                        color.toLowerCase() === 'silver'
-                          ? '#c0c0c0'
-                          : color.toLowerCase() === 'navy'
-                          ? '#000080'
-                          : color.toLowerCase(),
-                    }}
-                  />
-                  {/* Label */}
-                  <label
-                    htmlFor={`color-${color}`}
-                    className="text-sm font-medium cursor-pointer"
-                  >
-                    {color}
-                  </label>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
+        </div>
 
-          </CardContent>
+        {/* FIltre prix */}
+        <div className="space-y-3 py-4">
+          <h3 className="font-semibold text-gray-900">Price</h3>
+          <div className="flex items-center space-x-4">
+            <Input
+              type="number"
+              min={0}
+              value={filters.priceRange[0]}
+              onChange={(e) =>
+                updateFilters('priceRange', [Number(e.target.value), filters.priceRange[1]])
+              }
+              placeholder="Min"
+              className="w-full shadow-sm border-0 rounded px-4 py-2 text-sm"
+            />
+            <Input
+              type="number"
+              min={0}
+              value={filters.priceRange[1]}
+              onChange={(e) =>
+                updateFilters('priceRange', [filters.priceRange[0], Number(e.target.value)])
+              }
+              placeholder="Max"
+              className="w-full shadow-sm border-0 rounded px-4 py-2 text-sm"
+            />
+          </div>
+        </div>
+
+        {/* FIltre couleur */}
+        <div className="space-y-3 py-4">
+          <h3 className="font-semibold text-gray-900">Colors</h3>
+          <div className="space-y-2 max-h-40 overflow-y-hidden pr-2">
+            {colors.map((color) => (
+              <div key={color} className="flex items-center space-x-2">
+                <Checkbox
+                  id={`color-${color}`}
+                  checked={filters.color === color}
+                  onCheckedChange={(checked) =>
+                    updateFilters('color', checked ? color : '')
+                  }
+                />
+                <span
+                  className="w-4 h-4 rounded-full border"
+                  style={{
+                    backgroundColor:
+                      color.toLowerCase() === 'silver'
+                        ? '#c0c0c0'
+                        : color.toLowerCase() === 'navy'
+                        ? '#000080'
+                        : color.toLowerCase(),
+                  }}
+                />
+                <label
+                  htmlFor={`color-${color}`}
+                  className="text-sm font-medium cursor-pointer"
+                >
+                  {color}
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/*Filtre breed */}
+        <div className="space-y-3 py-4">
+          <h3 className="font-semibold text-gray-900">Breed</h3>
+          <div className="space-y-2 max-h-40 overflow-y-auto pr-2">
+            {['Small', 'Meduim', 'Large'].map((breed) => (
+              <div key={breed} className="flex items-center space-x-2">
+                <Checkbox
+                  id={`breed-${breed}`}
+                  checked={filters.breed === breed}
+                  onCheckedChange={(checked) =>
+                    updateFilters('breed', checked ? breed : '')
+                  }
+                />
+                <label
+                  htmlFor={`breed-${breed}`}
+                  className="text-sm font-medium cursor-pointer"
+                >
+                  {breed}
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+   </CardContent>
+
         </Card>
       </div>
     </>
