@@ -5,9 +5,12 @@ import Image from 'next/image';
 function Hero() {
   return (
     <div className="bg-[#FCEED5]">
+
       <div className="container mx-auto px-0 py-0">
+
         <div className="max-w-full min-h-[400px] rounded-3xl overflow-hidden flex items-stretch relative">
           {/* Colonne gauche */}
+
           <div className="flex flex-col justify-center pl-16 pr-8 py-12 flex-1 z-20">
             <h1 className="text-[#002A48] text-4xl xl:text-6xl font-bold mb-2">
               <span className="inline-block align-middle">
@@ -17,12 +20,15 @@ function Hero() {
                 <span className="relative z-12 ml-1">ne More Friend</span>
               </span>
             </h1>
+
             <h2 className="text-[#002A48] text-2xl xl:text-4xl font-bold mb-4">
               Thousands More Fun!
             </h2>
+
             <p className="text-[#242B33] text-base xl:text-lg max-w-md opacity-80 font-medium mb-8">
               Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!
             </p>
+            
             <div className="flex flex-row gap-4">
               <button className="group flex items-center gap-3 px-8 py-3 border-2 border-[#003459] text-[#003459] rounded-full hover:bg-[#003459] hover:text-white transition-all duration-300 font-medium">
                 View Intro
@@ -35,6 +41,8 @@ function Hero() {
               </button>
             </div>
           </div>
+
+
           {/* Colonne droite */}
         <div className="flex-1 relative flex items-end justify-end min-h-[400px]">
            

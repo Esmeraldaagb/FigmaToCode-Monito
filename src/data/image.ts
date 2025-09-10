@@ -26,6 +26,14 @@ import sel6 from '@/assets/sellers/sel6.png'
 import sel7 from '@/assets/sellers/sel7.png'
 
 
+import customer1 from '@/assets/customer/customer1.png'
+import customer2 from '@/assets/customer/customer2.png'
+import customer3 from '@/assets/customer/customer3.png'
+import customer4 from '@/assets/customer/customer4.png'
+import customer5 from '@/assets/customer/customer5.png'
+
+
+
 
 
 export const chiotImages1: string[] = [chiot1.src, chiot2.src, chiot3.src];
@@ -58,5 +66,16 @@ export const sellersimages = {
   sel5,
   sel6,
   sel7,
+ 
+};
+
+
+export const customersimages = {
+ customer1,
+customer2,
+ customer3,
+ customer4,
+ customer5,
+  
  
 };

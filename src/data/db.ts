@@ -1,4 +1,4 @@
-import { chiotImages1,chiotImages2,chiotImages3,chiotImages4,chiotImages5,chiotImages6,chiotImages7,chiotImages8,productimages,sellersimages } from "./image";
+import { chiotImages1,chiotImages2,chiotImages3,chiotImages4,chiotImages5,chiotImages6,chiotImages7,chiotImages8,productimages,sellersimages,customersimages } from "./image";
 import { AnimalCardProps,CustomerReview } from "./type";
 
 export const animalData: AnimalCardProps[] = [
@@ -276,27 +276,27 @@ export const sellersData=[
 export const customerReviews: CustomerReview[] = [
   {
     id: '1',
-    image: chiotImages1[0],
-    customerName: 'Happy Family'
+    image: customersimages.customer1,
+    customerName: 'Happy '
   },
   {
     id: '2',
-    image: chiotImages2[0],
-    customerName: 'Dog Lover'
+    image: customersimages.customer2,
+    customerName: 'Lover'
   },
   {
     id: '3',
-    image: chiotImages3[0],
-    customerName: 'Pet Parent'
+    image: customersimages.customer3,
+    customerName: 'Parent'
   },
   {
     id: '4',
-    image: chiotImages4[0],
-    customerName: 'Animal Enthusiast'
+    image: customersimages.customer4,
+    customerName: 'Enthusiast'
   },
   {
     id: '5',
-    image: chiotImages5[0],
-    customerName: 'Puppy Family'
+    image: customersimages.customer5,
+    customerName: 'Puppy'
   }
 ];

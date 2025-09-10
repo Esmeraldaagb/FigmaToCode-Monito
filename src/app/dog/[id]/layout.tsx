@@ -1,8 +1,8 @@
-
 import type { Metadata } from "next";
 import Header from "@/components/shared/header/header";
-import Footer from "@/components/shared/footer";
-export const metadata = {
+import Footer from "@/components/shared/footer/footer";
+
+export const metadata: Metadata = {
   title: "Category",
 };
 
@@ -13,11 +13,14 @@ export default function RootLayout({
 }>) {
   return (
     <div>
-       
-  <Header/>
-        {children}
-    <Footer/>
-   
+     
+      <div className="hidden md:block">
+        <Header />
+      </div>
+
+      {children}
+
+      <Footer />
     </div>
   );
 }

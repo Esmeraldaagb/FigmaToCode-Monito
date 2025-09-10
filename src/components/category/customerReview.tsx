@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { CustomerReview } from '@/data/type';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface CustomerReviewsProps {
   reviews: CustomerReview[];
@@ -11,71 +10,65 @@ interface CustomerReviewsProps {
 
 const CustomerReviews: React.FC<CustomerReviewsProps> = ({ reviews }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 5;
+  const total = reviews.length;
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => 
-      prev + itemsPerView >= reviews.length ? 0 : prev + itemsPerView
-    );
-  };
+  // Ici on utilise number | null pour le navigateur
+  const intervalRef = useRef<number | null>(null);
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => 
-      prev - itemsPerView < 0 ? Math.max(0, reviews.length - itemsPerView) : prev - itemsPerView
-    );
-  };
+  useEffect(() => {
+    // window.setInterval retourne un number côté navigateur
+    intervalRef.current = window.setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % total);
+    }, 5000);
 
-  const visibleReviews = reviews.slice(currentIndex, currentIndex + itemsPerView);
+    return () => {
+      if (intervalRef.current !== null) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [total]);
 
   return (
-    <div className="bg-gray-50 rounded-xl p-6">
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="text-xl font-bold text-gray-900">Our lovely customers</h3>
-        <div className="flex space-x-2">
-          <button
-            onClick={prevSlide}
-            disabled={currentIndex === 0}
-            className="p-2 rounded-full bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-          <button
-            onClick={nextSlide}
-            disabled={currentIndex + itemsPerView >= reviews.length}
-            className="p-2 rounded-full bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
+    <div className="p-6">
+      <h3 className="text-xl font-bold text-gray-900 mb-6">Our lovely customers</h3>
+
+      <div className="relative overflow-hidden w-full">
+        <div
+          className="flex transition-transform duration-700 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {reviews.map((review, idx) => (
+            <div
+              key={idx}
+              className="flex-shrink-0 w-full sm:w-[200px] md:w-[250px] lg:w-[300px] p-2"
+            >
+              <div className="overflow-hidden rounded-lg">
+                <Image
+                  src={review.image}
+                  alt={review.customerName || ""}
+                  width={300}
+                  height={300}
+                  className="w-full h-[250px] object-cover rounded-lg transform transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-        {visibleReviews.map((review) => (
-          <div key={review.id} className="relative">
-            <Image
-              src={review.image}
-              alt={`Customer ${review.customerName}`}
-              width={200}
-              height={200}
-              className="w-full aspect-square object-cover rounded-lg hover:scale-105 transition-transform duration-300"
+        {/* Points indicateurs */}
+        <div className="absolute -bottom-0 left-1/2 -translate-x-1/2 flex space-x-2">
+          {reviews.map((_, idx) => (
+            <span
+              key={idx}
+              className={`rounded-full transition-all duration-300 ${
+                idx === currentIndex
+                  ? 'w-5 h-2 bg-blue-900'
+                  : 'w-3 h-2 bg-gray-300'
+              }`}
             />
-          </div>
-        ))}
-      </div>
-
-      {/* Progress Indicators */}
-      <div className="flex justify-center mt-4 space-x-2">
-        {Array.from({ length: Math.ceil(reviews.length / itemsPerView) }).map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index * itemsPerView)}
-            className={`w-2 h-2 rounded-full transition-colors ${
-              Math.floor(currentIndex / itemsPerView) === index 
-                ? 'bg-blue-700' 
-                : 'bg-gray-300'
-            }`}
-          />
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

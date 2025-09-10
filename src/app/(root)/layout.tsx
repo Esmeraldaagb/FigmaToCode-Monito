@@ -1,7 +1,7 @@
 
 import type { Metadata } from "next";
 import HomeHead from "@/components/shared/homeHead";
-import Footer from "@/components/shared/footer";
+import Footer from "@/components/shared/footer/footer";
 
 export const metadata = {
   title: "Home",

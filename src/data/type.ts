@@ -55,6 +55,6 @@ export type FilterState = {
 
 export interface CustomerReview {
   id: string;
-  image: string;
-  customerName?: string;
+  image: string | StaticImageData;
+  customerName?: string ;
 }

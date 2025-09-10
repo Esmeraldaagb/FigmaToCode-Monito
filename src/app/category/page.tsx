@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Filters from "@/page/category/filters";
+import Filters from "@/components/category/filters";
 import { animalData } from "@/data/db";
 import AnimalCard from "@/components/animalsCards/animalsCard";
 import CategoryHero from "@/components/categoryHero/categoryHero";
@@ -118,7 +118,7 @@ export default function Category() {
 
           {/* Bouton */}
           <Link href="/category">
-            <Button asChild variant="outline" className="p-3 rounded-full border-[#003459]">
+            <Button asChild variant="outline" className="p-3 hidden md:block rounded-full border-[#003459]">
               <div className="flex items-center gap-1">
                 View more
                 <ChevronRight />
