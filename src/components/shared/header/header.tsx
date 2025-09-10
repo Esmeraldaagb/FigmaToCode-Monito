@@ -83,29 +83,30 @@ export default function Header() {
           </nav>
 
           {/* Desktop: Right section */}
-          <div className="hidden lg:flex items-center space-x-6">
-            {/* Search */}
-            <div className="relative group">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#667479] font-bold w-5 h-5 group-hover:text-[#2E5A88] transition-colors duration-300" />
-              <Input
-                placeholder="Search something here!"
-                className="pl-12 pr-6 py-3 w-80 bg-white/90 backdrop-blur-sm border-none focus:border-[#2E5A88] focus:ring-2 focus:ring-[#2E5A88]/20 transition-all duration-300 hover:shadow-xl rounded-full font-medium text-gray-700 placeholder:text-gray-400"
-              />
-            </div>
-
-            {/* Join Community */}
-            <Button className="bg-[#1B365D] hover:bg-[#2E5A88] text-white px-8 py-3 rounded-full font-semibold text-base transition-all duration-500 hover:scale-105 hover:shadow-2xl transform hover:shadow-[#1B365D]/30 relative overflow-hidden group">
-              <span className="relative z-10">Join the community</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#2E5A88] via-[#F4D03F] to-[#2E5A88] opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-flow" />
-            </Button>
-
-            {/* Language */}
-            <div className="flex items-center space-x-2 cursor-pointer group">
-              <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse-gentle shadow-lg shadow-red-500/40" />
-              <span className="text-[#1B365D] font-bold text-base group-hover:text-[#2E5A88] transition-colors duration-300">VND</span>
-              <ChevronDown className="w-4 h-4 text-[#1B365D] group-hover:text-[#2E5A88] transition-all duration-300 group-hover:rotate-180" />
-            </div>
+         <div className="hidden lg:flex items-center space-x-6">
+ 
+          <div className="relative group mr-6"> 
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#667479] w-5 h-5 group-hover:text-[#2E5A88] transition-colors duration-300" />
+            <Input
+              placeholder="Search something here!"
+              className="pl-12 pr-6 py-3 w-64 max-w-xs bg-white/90 backdrop-blur-sm border-none focus:border-[#2E5A88] focus:ring-2 focus:ring-[#2E5A88]/20 transition-all duration-300 hover:shadow-xl rounded-full font-medium text-gray-700 placeholder:text-gray-400"
+            />
           </div>
+
+        {/* Join Community */}
+        <Button className="bg-[#1B365D] hover:bg-[#2E5A88] text-white px-6 py-3 rounded-full font-semibold text-base transition-all duration-500 hover:scale-105 hover:shadow-2xl transform hover:shadow-[#1B365D]/30 relative overflow-hidden group">
+          <span className="relative z-10">Join the community</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2E5A88] via-[#F4D03F] to-[#2E5A88] opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-flow" />
+        </Button>
+
+        {/* Language */}
+        <div className="flex items-center space-x-2 cursor-pointer group">
+          <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse-gentle shadow-lg shadow-red-500/40" />
+          <span className="text-[#1B365D] font-bold text-base group-hover:text-[#2E5A88] transition-colors duration-300">VND</span>
+          <ChevronDown className="w-4 h-4 text-[#1B365D] group-hover:text-[#2E5A88] transition-all duration-300 group-hover:rotate-180" />
+        </div>
+      </div>
+
         </div>
 
         {/* Mobile: Drawer menu */}

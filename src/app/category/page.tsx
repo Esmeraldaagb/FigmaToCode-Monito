@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Filters from "@/components/category/filters";
 import { animalData } from "@/data/db";
 import AnimalCard from "@/components/animalsCards/animalsCard";
-import CategoryHero from "@/components/categoryHero/categoryHero";
+import CategoryHero from "@/components/category/categoryHero";
 import { FilterState } from "@/data/type";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -98,7 +98,7 @@ export default function Category() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen ">
       <CategoryHero />
 
       <div className="container mx-auto px-4 py-8">
@@ -109,23 +109,28 @@ export default function Category() {
           </div>
 
      <div>
-        <div className="flex items-center justify-between mt-2">
-          {/* Titre et sous-titre */}
-          <div className="flex items-center gap-2">
-            <p className="text-[#003459] text-2xl font-bold">Small dog</p>
-            <h1 className="text-lg font-medium">52 poppies</h1>
-          </div>
 
-          {/* Bouton */}
-          <Link href="/category">
-            <Button asChild variant="outline" className="p-3 hidden md:block rounded-full border-[#003459]">
-              <div className="flex items-center gap-1">
-                View more
-                <ChevronRight />
-              </div>
-            </Button>
-          </Link>
-        </div>
+          <div className="flex items-center justify-between mt-2">
+    
+      <div className="flex flex-col md:flex-row items-start md:items-center gap-2">
+        <p className="text-[#003459] text-2xl font-bold">Small dog</p>
+        <span className="text-lg font-medium text-gray-600">52 poppies</span>
+      </div>
+      
+   
+      <Link href="/category" passHref>
+        <Button
+          asChild
+          variant="outline"
+          className="hidden md:flex items-center gap-1 rounded-full border-[#003459] px-4 py-2"
+        >
+          <div className="flex items-center gap-1">
+            View more
+            <ChevronRight className="w-4 h-4" />
+          </div>
+        </Button>
+      </Link>
+    </div>
 
           {/* Grille */}
           <div className="flex-1">

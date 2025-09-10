@@ -50,7 +50,6 @@ const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 border-2 p-4 border-[#EBEEEF] rounded-lg">
 
-          {/* Colonne gauche : Image + Garanties + Réseaux */}
           <div className="flex flex-col space-y-6">
 
             {/* Image principale */}
@@ -97,10 +96,9 @@ const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
 
           </div>
 
-          {/* Colonne droite : Détails */}
           <div className="flex flex-col space-y-6 text-left">
 
-            {/* Breadcrumb Shadcn */}
+            {/* Breadcrumb  */}
             <div className="w-full overflow-x-auto">
               <Breadcrumb className="flex-nowrap">
                 <BreadcrumbList>
