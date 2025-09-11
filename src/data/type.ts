@@ -4,7 +4,7 @@ export type AnimalCardProps = {
   id?: number;
   type?: string;
   matriculation: string;
-  genre?: "male" | "female";
+  genre?: string;
   name?: string;
   price?: number;
   currency?: string;

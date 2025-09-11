@@ -185,7 +185,7 @@ const DogDetailPage = ({ params }: { params: { id: string } }) => {
                   type={animal.type}
                   matriculation={animal.matriculation}
                   age={animal.age}
-                  gender={animal.gender} 
+                  genre={animal.gender} 
                   images={animal.images}
                   price={animal.price}
                 />
