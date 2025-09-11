@@ -1,5 +1,4 @@
 
-import type { Metadata } from "next";
 import Header from "@/components/shared/header/header";
 import Footer from "@/components/shared/footer/footer";
 export const metadata = {

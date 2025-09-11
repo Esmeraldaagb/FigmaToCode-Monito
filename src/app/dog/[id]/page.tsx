@@ -13,7 +13,6 @@ import {
   Twitter, 
   Mail, 
   MapPin, 
-  ArrowLeft,
   MessageSquareMore,
 } from 'lucide-react';
 import AnimalCard from '@/components/animalsCards/animalsCard';

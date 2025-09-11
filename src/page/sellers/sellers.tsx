@@ -24,7 +24,7 @@ function Sellers() {
 
       <div className='overflow-hidden'>
         <div className='flex justify-between animate-scroll-simple'>
-          {sellersData.map((sel, index) => (
+          {sellersData.map((sel) => (
             <div key={sel.id} className='flex-shrink-0 group'>
               <Image
                 src={sel.img ?? "/logo.png"} 
