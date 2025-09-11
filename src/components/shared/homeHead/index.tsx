@@ -51,7 +51,7 @@ export default function HomeHead() {
       <header className={`relative z-20 transition-all duration-700 ease-out ${isScrolled ? 'bg-white/95 backdrop-blur-xl shadow-2xl' : ''}`}>
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
 
-          {/* Hamburger menu mobile */}
+          {/* Hamburger menu */}
           <div className="flex lg:hidden items-center">
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2">
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -86,30 +86,31 @@ export default function HomeHead() {
             ))}
           </nav>
 
-          {/* PC Search + Button + Language */}
-          <div className="hidden lg:flex items-center ml-8 gap-6">
-            {/* Input */}
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 group-hover:text-[#2E5A88] transition-colors duration-300" />
-              <Input
-                placeholder="Search something here!"
-                className="pl-12 pr-4 py-3 w-64 bg-white/90 backdrop-blur-sm border-gray-200 focus:border-[#2E5A88] focus:ring-2 focus:ring-[#2E5A88]/20 transition-all duration-300 hover:shadow-xl rounded-full font-medium text-gray-700 placeholder:text-gray-400"
-              />
-            </div>
-
-            {/* Button Joindre */}
-            <Button className="bg-[#1B365D] hover:bg-[#2E5A88] text-white px-6 py-3 rounded-full font-semibold text-base transition-all duration-500 hover:scale-105 hover:shadow-2xl transform hover:shadow-[#1B365D]/30 relative overflow-hidden group">
-              <span className="relative z-10">Join the community</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#2E5A88] via-[#F4D03F] to-[#2E5A88] opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-flow" />
-            </Button>
-
-            {/* Langage */}
-            <div className="flex items-center space-x-2 cursor-pointer group">
-              <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse-gentle shadow-lg shadow-red-500/40" />
-              <span className="text-[#1B365D] font-bold text-base group-hover:text-[#2E5A88] transition-colors duration-300">VND</span>
-              <ChevronDown className="w-4 h-4 text-[#1B365D] group-hover:text-[#2E5A88] transition-all duration-300 group-hover:rotate-180" />
-            </div>
+          {/* PC */}
+        <div className="hidden lg:flex items-center gap-8"> 
+          {/* Recherche */}
+          <div className="relative flex-shrink-0">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#667479] w-5 h-5 group-hover:text-[#2E5A88] transition-colors duration-300" />
+            <Input
+              placeholder="Search something here!"
+              className="pl-12 pr-4 py-3 w-72 max-w-xs bg-white/90 backdrop-blur-sm border-none focus:border-[#2E5A88] focus:ring-2 focus:ring-[#2E5A88]/20 transition-all duration-300 hover:shadow-xl rounded-full font-medium text-gray-700 placeholder:text-gray-400"
+            />
           </div>
+
+          {/* Bouton Communauté */}
+          <Button className="bg-[#1B365D] hover:bg-[#2E5A88] text-white px-6 py-3 rounded-full font-semibold text-base transition-all duration-500 hover:scale-105 hover:shadow-2xl transform hover:shadow-[#1B365D]/30 relative overflow-hidden group">
+            <span className="relative z-10">Join the community</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#2E5A88] via-[#F4D03F] to-[#2E5A88] opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-flow" />
+          </Button>
+
+          {/* Langue */}
+          <div className="flex items-center gap-3 cursor-pointer group">
+            <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse-gentle shadow-lg shadow-red-500/40" />
+            <span className="text-[#1B365D] font-bold text-base group-hover:text-[#2E5A88] transition-colors duration-300">VND</span>
+            <ChevronDown className="w-4 h-4 text-[#1B365D] group-hover:text-[#2E5A88] transition-all duration-300 group-hover:rotate-180" />
+          </div>
+        </div>
+
         </div>
 
         {/* Mobile Menu */}
