@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -6,7 +5,6 @@ import { animalData, customerReviews } from '@/data/db';
 import ImageGallery from '@/components/category/imageGallery';
 import CustomerReviews from '@/components/category/customerReview';
 import { 
-
   Phone, 
   Share2, 
   Facebook, 
@@ -25,14 +23,8 @@ import {
 } from "@/components/ui/breadcrumb";
 import Image from 'next/image';
 
-
-interface DogDetailPageProps {
-  params: {
-    id: string;
-  };
-}
-
-const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
+// ✅ Typage direct correct pour App Router
+const DogDetailPage = ({ params }: { params: { id: string } }) => {
   const dog = animalData.find(d => d.id === Number(params.id));
   if (!dog) notFound();
 
@@ -45,11 +37,9 @@ const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 border-2 p-4 border-[#EBEEEF] rounded-lg">
-
+          {/* Colonne gauche */}
           <div className="flex flex-col space-y-6">
-
             {/* Image principale */}
             <div className="w-full pt-4 sm:pt-6">
               <ImageGallery
@@ -68,7 +58,6 @@ const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
               </div>
               <div className=" flex items-center space-x-2 text-[#002A48]">
                   <Image src="/icon2.png" width={20} height={20} alt="icon"/>
-
                 <span className="text-sm font-bold ">100% guarantee of pet identification</span>
               </div>
             </div>
@@ -91,12 +80,11 @@ const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
                 </button>
               </div>
             </div>
-
           </div>
 
+          {/* Colonne droite */}
           <div className="flex flex-col space-y-6 text-left">
-
-            {/* Breadcrumb  */}
+            {/* Breadcrumb */}
             <div className="w-full overflow-x-auto">
               <Breadcrumb className="flex-nowrap">
                 <BreadcrumbList>
@@ -148,36 +136,31 @@ const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
               </button>
             </div>
 
-            
-              {/* Infos détaillées */}
-              <div className="flex flex-col divide-y divide-gray-200 py-6">
-                {[
-                  { label: 'SKU', value: dog?.sku },
-                  { label: 'Gender', value: dog?.gender },
-                  { label: 'Age', value: dog?.age },
-                  { label: 'Size', value: dog?.size },
-                  { label: 'Color', value: dog?.color },
-                  { label: 'Vaccinated', value: dog?.vaccinated ? 'Yes' : 'No', highlight: dog?.vaccinated },
-                  { label: 'Dewormed', value: dog?.dewormed ? 'Yes' : 'No', highlight: dog?.dewormed },
-                  { label: 'Cert', value: dog?.cut },
-                  { label: 'Microchip', value: dog?.microchip ? 'Yes' : 'No', highlight: dog?.microchip },
-                  { label: 'Location', value: dog?.location, icon: <MapPin className="w-4 h-4" /> },
-                  { label: 'Published Date', value: formatDate(dog?.publishedDate ?? "")},
-                  { label: 'Additional Information', value: dog?.additionalInfo },
-                ].map((item, i) => (
-                  <div key={i} className="flex py-2 items-center">
-                    {/* Label */}
-                    <span className="text-[#667479] w-1/3">{item.label}</span>
-
-                    {/* Value */}
-                    <span className={`text-left font-light flex items-center space-x-1 w-2/3 `}>
-                      {item.icon && item.icon}
-                      <span>:{item.value}</span>
-                    </span>
-                  </div>
-                ))}
-              </div>
-
+            {/* Infos détaillées */}
+            <div className="flex flex-col divide-y divide-gray-200 py-6">
+              {[
+                { label: 'SKU', value: dog?.sku },
+                { label: 'Gender', value: dog?.gender },
+                { label: 'Age', value: dog?.age },
+                { label: 'Size', value: dog?.size },
+                { label: 'Color', value: dog?.color },
+                { label: 'Vaccinated', value: dog?.vaccinated ? 'Yes' : 'No', highlight: dog?.vaccinated },
+                { label: 'Dewormed', value: dog?.dewormed ? 'Yes' : 'No', highlight: dog?.dewormed },
+                { label: 'Cert', value: dog?.cut },
+                { label: 'Microchip', value: dog?.microchip ? 'Yes' : 'No', highlight: dog?.microchip },
+                { label: 'Location', value: dog?.location, icon: <MapPin className="w-4 h-4" /> },
+                { label: 'Published Date', value: formatDate(dog?.publishedDate ?? "")},
+                { label: 'Additional Information', value: dog?.additionalInfo },
+              ].map((item, i) => (
+                <div key={i} className="flex py-2 items-center">
+                  <span className="text-[#667479] w-1/3">{item.label}</span>
+                  <span className="text-left font-light flex items-center space-x-1 w-2/3">
+                    {item.icon && item.icon}
+                    <span>:{item.value}</span>
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -186,28 +169,28 @@ const DogDetailPage: React.FC<DogDetailPageProps> = ({ params }) => {
           <CustomerReviews reviews={customerReviews} />
         </div>
 
-  
-      <div className="mt-16">
-        <p>{"What's"} new?</p>
-        <h2 className="text-2xl font-bold mb-6 text-[#003459]">See more Puppies</h2>
+        {/* Suggestions */}
+        <div className="mt-16">
+          <p>{"What's"} new?</p>
+          <h2 className="text-2xl font-bold mb-6 text-[#003459]">See more Puppies</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {animalData
-            .filter(a => a.id !== dog?.id) 
-            .slice(0, 4)
-            .map(animal => (
-              <AnimalCard
-                key={animal.id}
-                id={animal.id}
-                type={animal.type}
-                matriculation={animal.matriculation}
-                age={animal.age}
-                gender={animal.gender} 
-                images={animal.images}
-                price={animal.price}
-              />
-            ))}
-        </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {animalData
+              .filter(a => a.id !== dog?.id) 
+              .slice(0, 4)
+              .map(animal => (
+                <AnimalCard
+                  key={animal.id}
+                  id={animal.id}
+                  type={animal.type}
+                  matriculation={animal.matriculation}
+                  age={animal.age}
+                  gender={animal.gender} 
+                  images={animal.images}
+                  price={animal.price}
+                />
+              ))}
+          </div>
         </div>
       </div>
     </div>
