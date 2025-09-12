@@ -23,9 +23,12 @@ import {
 } from "@/components/ui/breadcrumb";
 import Image from 'next/image';
 
-// ✅ Typage direct correct pour App Router
-const DogDetailPage = ({ params }: { params: { id: string } }) => {
-  const dog = animalData.find(d => d.id === Number(params.id));
+// ✅ Fixed typing for Next.js 15 App Router with async params
+const DogDetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  // Await the params to get the actual values
+  const { id } = await params;
+  
+  const dog = animalData.find(d => d.id === Number(id));
   if (!dog) notFound();
 
   const formatPrice = (price: number, currency?: string) => {
